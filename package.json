@@ -1,0 +1,71 @@
+{
+  "name": "react-avanzado",
+  "version": "1.0.0",
+  "description": "Creacion de PWA, inspirada en IG",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack serve",
+    "lint": "semistandard",
+    "lint-fix": "semistandard --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arqPhenry/react-avanzado.git"
+  },
+  "keywords": [
+    "React",
+    "React.js",
+    "Instagram",
+    "Frontend",
+    "Vercel",
+    "Lighthouse",
+    "Platzi"
+  ],
+  "author": "Henry Navas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arqPhenry/react-avanzado/issues"
+  },
+  "homepage": "https://github.com/arqPhenry/react-avanzado#readme",
+  "devDependencies": {
+    "@babel/core": "^7.18.6",
+    "@babel/preset-env": "^7.18.6",
+    "@babel/preset-react": "^7.18.6",
+    "babel-loader": "^8.2.5",
+    "html-webpack-plugin": "^5.5.0",
+    "semistandard": "^16.0.1",
+    "standard": "^17.0.0",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.9.2"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "standard": {
+    "ignore": [
+      "/api/**"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "./node_modules/semistandard/eslintrc.json"
+    ]
+  },
+  "editor.formatOnSave": true,
+  "[javascript]": {
+    "editor.formatOnSave": false
+  },
+  "[javascriptreact]": {
+    "editor.formatOnSave": false
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+  "prettier.disableLanguages": [
+    "javascript",
+    "javascriptreact"
+  ]
+}
