@@ -7,7 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack serve",
     "lint": "semistandard",
-    "lint-fix": "semistandard --fix"
+    "lint-fix": "semistandard --fix",
+    "build": "webpack",
+    "vercel-build": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -40,10 +42,6 @@
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.9.2"
   },
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
   "standard": {
     "ignore": [
       "/api/**"
@@ -54,18 +52,8 @@
       "./node_modules/semistandard/eslintrc.json"
     ]
   },
-  "editor.formatOnSave": true,
-  "[javascript]": {
-    "editor.formatOnSave": false
-  },
-  "[javascriptreact]": {
-    "editor.formatOnSave": false
-  },
-  "editor.codeActionsOnSave": {
-    "source.fixAll": true
-  },
-  "prettier.disableLanguages": [
-    "javascript",
-    "javascriptreact"
-  ]
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
 }
