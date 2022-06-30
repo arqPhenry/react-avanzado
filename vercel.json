@@ -1,6 +1,6 @@
 {
     "version": 2,
-    "name": "petgram",
+    "name": "petgram-phenry",
     "builds": [
         {
             "use":"@vercel/static-build",
