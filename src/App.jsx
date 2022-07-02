@@ -1,14 +1,16 @@
 import React from 'react';
-import { Category } from '@Category/Category';
+import { ListOfCategories } from '@ListOfCategories/index.jsx';
+import { GlobalStyle } from './GlobalStyles.js';
 
 const App = () => {
   return (
-    <div>
-      <Category />
+    <>
+      <GlobalStyle />
+      <ListOfCategories />
       <h1>
         Here we go, React
       </h1>
-    </div>
+    </>
   );
 };
 
