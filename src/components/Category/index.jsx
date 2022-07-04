@@ -1,11 +1,10 @@
 import React from 'react';
 import { Anchor, Image } from './styles';
 
-const Category = ({ cover, path, emoji }) => {
+const Category = ({ cover, path }) => {
   return (
-    <Anchor href={path}>
-      <Image src={cover} alt='image' />
-      {emoji}
+    <Anchor className='Anchor' href={path}>
+      <Image className='Image' src={cover} alt='image' />
     </Anchor>
   );
 };

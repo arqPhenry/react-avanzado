@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   output: {
@@ -10,6 +11,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'PetGram',
       template: './src/public/index.html'
+    }),
+    new MiniCssExtractPlugin({
+      filename: '[name].css'
     })
   ],
   resolve: {
@@ -22,10 +26,7 @@ module.exports = {
       '@icons': path.resolve(__dirname, 'src/assets/icons/'),
       '@logos': path.resolve(__dirname, 'src/assets/logos/'),
       '@hooks': path.resolve(__dirname, 'src/hooks/'),
-      '@context': path.resolve(__dirname, 'src/context/'),
-      '@Category': path.resolve(__dirname, 'src/components/Category'),
-      '@ListOfCategories': path.resolve(__dirname, 'src/components/ListOfCategories')
-
+      '@context': path.resolve(__dirname, 'src/context/')
     }
   },
   module: {
@@ -43,7 +44,18 @@ module.exports = {
       {
         test: /\.(png|svg|jp(e*)g|gif)$/,
         type: 'asset'
+      },
+      {
+        test: /\.(css|scss)$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader'
+        ]
       }
     ]
+  },
+  devServer: {
+    historyApiFallback: true
   }
 };

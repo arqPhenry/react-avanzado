@@ -1,5 +1,5 @@
 import React from 'react';
-import { Category } from '@Category/index.jsx';
+import { Category } from '@components/Category/index.jsx';
 import { List, Item } from './styles.js';
 import { categories } from '../../../api/db.json';
 

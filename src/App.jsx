@@ -1,15 +1,16 @@
 import React from 'react';
-import { ListOfCategories } from '@ListOfCategories/index.jsx';
 import { GlobalStyle } from './GlobalStyles.js';
+import { ListOfCategories } from '@components/ListOfCategories/index.jsx';
+import { ListOfPhotoCards } from '@components/ListOfPhotoCards/index.jsx';
+import { Logo } from '@components/Logo/index.jsx';
 
 const App = () => {
   return (
     <>
       <GlobalStyle />
+      <Logo />
       <ListOfCategories />
-      <h1>
-        Here we go, React
-      </h1>
+      <ListOfPhotoCards />
     </>
   );
 };
