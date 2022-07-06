@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Category } from '@components/Category/index.jsx';
+import { LoadingCategory } from '@components/LoadingCategory/index.jsx';
 import { List, Item } from './styles.js';
 
-const ListOfCategories = () => {
+const useCategoriesData = () => {
   const [categories, setCategories] = useState([]);
-  const [fixed, setFixed] = useState(false);
+  const [loading, setloading] = useState(true);
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -13,10 +14,18 @@ const ListOfCategories = () => {
       const data = await response.json();
 
       setCategories(data);
+      setloading(false);
     };
 
     fetchCategories();
   }, []);
+
+  return { categories, loading };
+};
+
+const ListOfCategories = () => {
+  const { categories, loading } = useCategoriesData();
+  const [fixed, setFixed] = useState(false);
 
   useEffect(function () {
     const onScroll = e => {
@@ -30,19 +39,24 @@ const ListOfCategories = () => {
     return () => document.removeEventListener('scroll', onScroll);
   }, [fixed]);
 
+  const renderList = () => (
+    <List>
+      {
+            categories.map(category => <Item key={category.id}> <Category {...category} /> </Item>)
+          }
+    </List>
+  );
+  const renderListFixed = () => (
+    <List fixed={fixed}>
+      {
+            categories.map(category => <Item key={category.id}> <Category {...category} /> </Item>)
+            }
+    </List>
+  );
   return (
     <>
-      <List>
-        {
-          categories.map(category => <Item key={category.id}> <Category {...category} /> </Item>)
-        }
-      </List>
-      {fixed &&
-        <List className='fixed'>
-          {
-          categories.map(category => <Item key={category.id}> <Category {...category} /> </Item>)
-          }
-        </List>}
+      {loading ? <LoadingCategory /> : renderList()}
+      {fixed && renderListFixed()}
     </>
   );
 };
