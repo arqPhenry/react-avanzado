@@ -3,12 +3,12 @@ import { keyframes, css } from 'styled-components';
 const scrollInKeyframes = keyframes`
   from {
     transform: translateY(-60px) scale(.6);
-    //opacity: 0;
+    opacity: 0;
   }
 
   to {
     transform: translateY(0px) scale(.6);
-    //opacity: 1;
+    opacity: 1;
   }
 `;
 

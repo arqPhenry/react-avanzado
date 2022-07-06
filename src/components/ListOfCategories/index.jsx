@@ -22,6 +22,7 @@ const ListOfCategories = () => {
     const onScroll = e => {
       const isShowFixed = window.scrollY > 160;
       setFixed(isShowFixed);
+      console.log('ejecutando');
     };
 
     document.addEventListener('scroll', onScroll);
@@ -37,10 +38,10 @@ const ListOfCategories = () => {
         }
       </List>
       {fixed &&
-        <List className={fixed ? 'fixed' : ''}>
+        <List className='fixed'>
           {
           categories.map(category => <Item key={category.id}> <Category {...category} /> </Item>)
-        }
+          }
         </List>}
     </>
   );
