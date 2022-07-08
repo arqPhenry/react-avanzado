@@ -31,7 +31,7 @@ const ListOfCategories = () => {
     const onScroll = e => {
       const isShowFixed = window.scrollY > 160;
       setFixed(isShowFixed);
-      console.log('ejecutando');
+      // console.log('ejecutando');
     };
 
     document.addEventListener('scroll', onScroll);

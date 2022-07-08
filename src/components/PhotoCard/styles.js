@@ -6,6 +6,7 @@ export const Article = styled.article`
     border-radius: 16px;
     max-width: 400px;
     overflow: hidden;
+    min-height: 300px;
 
     box-shadow: 0px 10px 25px -12px #8b98a5;
 `;
