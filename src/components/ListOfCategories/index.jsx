@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Category } from '@components/Category/index.jsx';
 import { LoadingCategory } from '@components/LoadingCategory/index.jsx';
-import { List, Carrousel, Item, Button } from './styles.js';
+import { List, Item, Button } from './styles.js';
+import './style.scss';
 import { MdArrowForwardIos, MdArrowBackIos } from 'react-icons/md';
 
 const ListOfCategories = () => {
@@ -72,26 +73,36 @@ const ListOfCategories = () => {
   const renderList = () => (
     <List ref={list} className='lista'>
       <Button type='button' className='izquierdo' onClick={scrollLeft}><MdArrowBackIos /></Button>
-      <Carrousel className='carrousel'>
+      <ul className='carrousel'>
         {renderCategories()}
-      </Carrousel>
+      </ul>
       <Button type='button' className='derecho' onClick={scrollRight}><MdArrowForwardIos /></Button>
     </List>
   );
   const renderListFixed = () => (
     <List fixed={fixed}>
-      <Carrousel className='carrousel'>
+      <Button type='button' className='izquierdo' onClick={scrollLeftFixed}><MdArrowBackIos /></Button>
+      <ul className='carrouselFixed'>
         {renderCategories()}
-      </Carrousel>
+      </ul>
+      <Button type='button' className='derecho' onClick={scrollRightFixed}><MdArrowForwardIos /></Button>
     </List>
   );
   const scrollRight = () => {
-    const carrusel = document.querySelector('ul.sc-gKXOVf.kkoaG.carrousel');
-    carrusel.scrollLeft += carrusel.offsetWidth;
+    const carrousel = document.querySelector('ul.carrousel');
+    carrousel.scrollLeft >= 194 ? carrousel.scrollLeft = 0 : carrousel.scrollLeft += carrousel.offsetWidth;
   };
   const scrollLeft = () => {
-    const carrusel = document.querySelector('ul.sc-gKXOVf.kkoaG.carrousel');
-    carrusel.scrollLeft -= carrusel.offsetWidth;
+    const carrousel = document.querySelector('ul.carrousel');
+    carrousel.scrollLeft -= carrousel.offsetWidth;
+  };
+  const scrollRightFixed = () => {
+    const carrousel = document.querySelector('ul.carrouselFixed');
+    carrousel.scrollLeft >= 206 ? carrousel.scrollLeft = 0 : carrousel.scrollLeft += carrousel.offsetWidth;
+  };
+  const scrollLeftFixed = () => {
+    const carrousel = document.querySelector('ul.carrouselFixed');
+    carrousel.scrollLeft -= carrousel.offsetWidth;
   };
   return (
     <>

@@ -8,36 +8,22 @@ export const List = styled.ul`
 
   ${props => props.fixed && css`
     {
+      position: fixed;
       background: #fff;
       border-radius: 60px;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
       left: 0;
       margin: 0 auto;
       max-width: 400px;
-      padding: 6px;
-      position: fixed;
+      
       right: 0;
       top: -10px;
       transform: scale(.7);
       z-index: 1;
-      &::-webkit-scrollbar{
-        display: none;
-      }
 
       ${scrollIn()}
     }
   `}
-`;
-
-export const Carrousel = styled.ul`
-    display: flex;
-    overflow: scroll;
-    scroll-behavior: smooth;
-    max-width: 400px;
-    
-    &::-webkit-scrollbar{
-        display: none;
-      }
 `;
 
 export const Item = styled.li`

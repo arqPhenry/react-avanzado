@@ -1,0 +1,24 @@
+.carrousel{
+    display: flex;
+    overflow: scroll;
+    scroll-behavior: smooth;
+    max-width: 400px;
+    border-radius: 75px;
+    
+
+    &::-webkit-scrollbar{
+        display: none;
+    }
+}
+.carrouselFixed{
+    display: flex;
+    overflow: scroll;
+    scroll-behavior: smooth;
+    max-width: 400px;
+    border-radius: 60px;
+    padding: 6px;
+
+    &::-webkit-scrollbar{
+        display: none;
+    }
+}  
