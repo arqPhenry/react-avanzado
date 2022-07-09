@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Category } from '@components/Category/index.jsx';
 import { LoadingCategory } from '@components/LoadingCategory/index.jsx';
 import { List, Item } from './styles.js';
 
-const useCategoriesData = () => {
+const ListOfCategories = () => {
+  const [fixed, setFixed] = useState(false);
   const [categories, setCategories] = useState([]);
   const [loading, setloading] = useState(true);
+  const list = useRef(null);
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -15,19 +17,42 @@ const useCategoriesData = () => {
 
       setCategories(data);
       setloading(false);
+
+      const observer = new window.IntersectionObserver(function (entries) {
+        const { isIntersecting } = entries[0];
+        if (isIntersecting) {
+          // console.log('Intersecta lista');
+          setFixed(false);
+        } else {
+          // console.log('No intersecta lista');
+          setFixed(true);
+        }
+      });
+      observer.observe(list.current);
+
+      return () => {
+        observer.disconnect();
+      };
     };
 
     fetchCategories();
   }, []);
 
-  return { categories, loading };
-};
+  /* useEffect(function () {
+    const observer = new window.IntersectionObserver(function (entries) {
+      const { isIntersecting } = entries[0];
+      if (isIntersecting) {
+        console.log('Intersecta lista');
+        setFixed(false);
+      } else {
+        console.log('No intersecta lista');
+        setFixed(true);
+      }
+    });
+    observer.observe(list.current);
+  }, [list]); */
 
-const ListOfCategories = () => {
-  const { categories, loading } = useCategoriesData();
-  const [fixed, setFixed] = useState(false);
-
-  useEffect(function () {
+  /* useEffect(function () {
     const onScroll = e => {
       const isShowFixed = window.scrollY > 160;
       setFixed(isShowFixed);
@@ -37,20 +62,23 @@ const ListOfCategories = () => {
     document.addEventListener('scroll', onScroll);
 
     return () => document.removeEventListener('scroll', onScroll);
-  }, [fixed]);
+  }, [fixed]); */
+
+  const renderCategories = () => (
+    categories.map(category =>
+      <Item key={category.id}>
+        <Category {...category} />
+      </Item>)
+  );
 
   const renderList = () => (
-    <List>
-      {
-            categories.map(category => <Item key={category.id}> <Category {...category} /> </Item>)
-          }
+    <List ref={list}>
+      {renderCategories()}
     </List>
   );
   const renderListFixed = () => (
     <List fixed={fixed}>
-      {
-            categories.map(category => <Item key={category.id}> <Category {...category} /> </Item>)
-            }
+      {renderCategories()}
     </List>
   );
   return (
