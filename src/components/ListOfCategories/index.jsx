@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Category } from '@components/Category/index.jsx';
 import { LoadingCategory } from '@components/LoadingCategory/index.jsx';
-import { List, Item } from './styles.js';
+import { List, Carrousel, Item, Button } from './styles.js';
+import { MdArrowForwardIos, MdArrowBackIos } from 'react-icons/md';
 
 const ListOfCategories = () => {
   const [fixed, setFixed] = useState(false);
@@ -12,9 +13,7 @@ const ListOfCategories = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       const response = await window.fetch('https://petgram-server-phenry.vercel.app/categories');
-
       const data = await response.json();
-
       setCategories(data);
       setloading(false);
 
@@ -70,17 +69,30 @@ const ListOfCategories = () => {
         <Category {...category} />
       </Item>)
   );
-
   const renderList = () => (
-    <List ref={list}>
-      {renderCategories()}
+    <List ref={list} className='lista'>
+      <Button type='button' className='izquierdo' onClick={scrollLeft}><MdArrowBackIos /></Button>
+      <Carrousel className='carrousel'>
+        {renderCategories()}
+      </Carrousel>
+      <Button type='button' className='derecho' onClick={scrollRight}><MdArrowForwardIos /></Button>
     </List>
   );
   const renderListFixed = () => (
     <List fixed={fixed}>
-      {renderCategories()}
+      <Carrousel className='carrousel'>
+        {renderCategories()}
+      </Carrousel>
     </List>
   );
+  const scrollRight = () => {
+    const carrusel = document.querySelector('ul.sc-gKXOVf.kkoaG.carrousel');
+    carrusel.scrollLeft += carrusel.offsetWidth;
+  };
+  const scrollLeft = () => {
+    const carrusel = document.querySelector('ul.sc-gKXOVf.kkoaG.carrousel');
+    carrusel.scrollLeft -= carrusel.offsetWidth;
+  };
   return (
     <>
       {loading ? <LoadingCategory /> : renderList()}

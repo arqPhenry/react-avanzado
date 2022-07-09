@@ -1,27 +1,17 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React from 'react';
 import { Figure, Image, Button, Article, ButtonList } from './styles.js';
-import { MdFavoriteBorder, MdOutlineCategory } from 'react-icons/md';
+import { MdFavoriteBorder, MdOutlineCategory, MdFavorite } from 'react-icons/md';
+import { useLocalStorage } from '../../hooks/useLocalStorage.js';
+import { useNearScreen } from '../../hooks/useNearScreen.js';
 
 const defaultImage = 'https://res.cloudinary.com/midudev/image/upload/w_300/q_80/v1560262103/dogs.png';
 
 const PhotoCard = ({ id, likes = 0, src }) => {
-  const element = useRef(null);
-  const [showCard, setShowCard] = useState(false);
+  const key = `like-${id}`;
+  const [liked, setLiked] = useLocalStorage(key, false);
+  const [showCard, element] = useNearScreen();
 
-  useEffect(function () {
-    const observer = new window.IntersectionObserver(function (entries) {
-      const { isIntersecting } = entries[0];
-      if (isIntersecting) {
-        console.log('Intersecta');
-        setShowCard(true);
-        observer.disconnect();
-      } else {
-        console.log('No intersecta');
-        setShowCard(false);
-      }
-    });
-    observer.observe(element.current);
-  }, [element]);
+  const Icon = liked ? MdFavorite : MdFavoriteBorder;
 
   return (
     <Article ref={element}>
@@ -35,8 +25,8 @@ const PhotoCard = ({ id, likes = 0, src }) => {
             </Figure>
           </a>
           <ButtonList>
-            <Button type='button'>
-              <MdFavoriteBorder size='16px' />{likes}
+            <Button type='button' onClick={() => setLiked(!liked)}>
+              <Icon size='16px' />{likes}
             </Button>
             <Button type='button'>
               <MdOutlineCategory size='16px' />Dogs
