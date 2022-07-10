@@ -38,32 +38,6 @@ const ListOfCategories = () => {
     fetchCategories();
   }, []);
 
-  /* useEffect(function () {
-    const observer = new window.IntersectionObserver(function (entries) {
-      const { isIntersecting } = entries[0];
-      if (isIntersecting) {
-        console.log('Intersecta lista');
-        setFixed(false);
-      } else {
-        console.log('No intersecta lista');
-        setFixed(true);
-      }
-    });
-    observer.observe(list.current);
-  }, [list]); */
-
-  /* useEffect(function () {
-    const onScroll = e => {
-      const isShowFixed = window.scrollY > 160;
-      setFixed(isShowFixed);
-      // console.log('ejecutando');
-    };
-
-    document.addEventListener('scroll', onScroll);
-
-    return () => document.removeEventListener('scroll', onScroll);
-  }, [fixed]); */
-
   const renderCategories = () => (
     categories.map(category =>
       <Item key={category.id}>

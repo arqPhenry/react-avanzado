@@ -2,7 +2,6 @@
     display: flex;
     overflow: scroll;
     scroll-behavior: smooth;
-    max-width: 400px;
     border-radius: 75px;
     
 
@@ -14,9 +13,10 @@
     display: flex;
     overflow: scroll;
     scroll-behavior: smooth;
-    max-width: 400px;
     border-radius: 60px;
     padding: 6px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    background: #fff;
 
     &::-webkit-scrollbar{
         display: none;
