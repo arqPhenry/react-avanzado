@@ -6,6 +6,7 @@ export const List = styled.div`
   grid-template-columns: auto 1fr auto;
   align-items: center;
   justify-content: center;
+  gap: 6px;
   max-width: 400px;
   margin-bottom: 12px;
 
@@ -28,7 +29,7 @@ export const List = styled.div`
 `;
 
 export const Item = styled.li`
-  padding: 0 8px;
+  padding-bottom: 0;
 `;
 
 export const Button = styled.button`
