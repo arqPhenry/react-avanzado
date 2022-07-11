@@ -1,14 +1,16 @@
 import styled, { css } from 'styled-components';
 import { scrollIn } from '../styles/animations.js';
+import { grisClaro, grisOscuro } from '../styles/vars.js';
 
 export const List = styled.div`
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto;
   align-items: center;
   justify-content: center;
-  gap: 6px;
   max-width: 400px;
   margin-bottom: 12px;
+
+  position: relative;
 
   ${props => props.fixed && css`
     {
@@ -36,15 +38,30 @@ export const Button = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #eff3f4;
+  background-color: none;
+  opacity: 0.7;
+  color: ${grisClaro};
   z-index: 1;
-  border-radius: 50%;
-  padding: 6px;
+  height: 100.5px;
+  padding: 3px;
   cursor: pointer;
   transition: 0.2s ease all;
+  top: 0;
+
+  position: absolute;
+
+  &.izquierdo{
+    border-radius: 16px 0 0 16px;
+    left: 0
+  }
+  &.derecho{
+    right: 0;
+    border-radius: 0 16px 16px 0;
+  }
 
   &:hover{
-    background-color: #536471;
-    color: #f7f9f9;
+    background-color: ${grisOscuro};
+    color: ${grisClaro};
+    opacity: 0.8;
   }
 `;

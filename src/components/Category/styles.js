@@ -13,13 +13,13 @@ const Anchor = styled.a`
 
     &:hover{
       & div{
-        background-color: ${grisClaro};
+        background-color: ${grisOscuro};
 
         &::before{
-          background-color: ${grisClaro};
+          background-color: ${grisOscuro};
         }
         & p{
-          color: ${grisOscuro};
+          color: ${grisClaro};
           font-weight: ${pesoMedioFuerte};
         }
       }
@@ -44,14 +44,14 @@ const Div = styled.div`
   align-items: center;
   justify-content: center;
   height: 25.5px;
-  background-color: ${grisOscuro};
+  background-color: ${grisClaro};
   width: 100%;
 
   &::before {
     content: '';
     width: 100%;
     height: 8px;
-    background-color: ${grisOscuro};
+    background-color: ${grisClaro};
     top: -8px;
     position: absolute;
     border-radius: 8px 8px 0 0;
@@ -71,7 +71,7 @@ const Par = styled.p`
   text-align: center;
   font-size: ${vsm};
   font-weight: ${pesoMedio};
-  color: ${grisClaro};
+  color: ${grisOscuro};
   transition: all 0.25s ease;
   margin-bottom: 6.5px;
 `;
