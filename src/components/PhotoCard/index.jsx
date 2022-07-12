@@ -4,9 +4,9 @@ import { MdFavoriteBorder, MdOutlineCategory, MdFavorite } from 'react-icons/md'
 import { useLocalStorage } from '../../hooks/useLocalStorage.js';
 import { useNearScreen } from '../../hooks/useNearScreen.js';
 
-const defaultImage = 'https://res.cloudinary.com/midudev/image/upload/w_300/q_80/v1560262103/dogs.png';
+// const defaultImage = 'https://res.cloudinary.com/midudev/image/upload/w_300/q_80/v1560262103/dogs.png';
 
-const PhotoCard = ({ id, likes = 0, src }) => {
+const PhotoCard = ({ id, likes, src }) => {
   const key = `like-${id}`;
   const [liked, setLiked] = useLocalStorage(key, false);
   const [showCard, element] = useNearScreen();
@@ -20,7 +20,7 @@ const PhotoCard = ({ id, likes = 0, src }) => {
           <a href={`/detail/${id}`}>
             <Figure>
               <div>
-                <Image src={defaultImage} alt={`image-${id}`} />
+                <Image src={src} alt={`image-${id}`} />
               </div>
             </Figure>
           </a>
