@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { grisOscuro, grisClaro, vsm, pesoMedio, pesoMedioFuerte } from '../styles/vars';
 
 const Anchor = styled.a`
@@ -10,6 +10,13 @@ const Anchor = styled.a`
     overflow: hidden;
     box-sizing: content-box;
     box-shadow: 0px 5px 20px -12px rgba(83, 100, 113, 0.65);
+
+    ${props => props.fixed && css`
+    {
+      grid-template-rows: auto;
+      box-shadow: 0px 5px 20px -12px rgba(83, 100, 113, 0.85);
+    }
+    `}
 
     &:hover{
       & div{
@@ -25,6 +32,7 @@ const Anchor = styled.a`
       }
       box-shadow: 0px 5px 20px -12px rgba(83, 100, 113, 0.85);
     }
+
 `;
 
 const Image = styled.img`
@@ -57,6 +65,11 @@ const Div = styled.div`
     border-radius: 8px 8px 0 0;
     transition: all 0.25s ease;
   }
+  ${props => props.fixed && css`
+    {
+      display: none;
+    }
+  `}
 
   transition: all 0.25s ease;
 `;

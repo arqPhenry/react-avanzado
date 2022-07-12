@@ -8,7 +8,7 @@ export const List = styled.div`
   align-items: center;
   justify-content: center;
   max-width: 400px;
-  margin-bottom: 12px;
+  margin-bottom: 6px;
 
   position: relative;
 
@@ -22,7 +22,7 @@ export const List = styled.div`
       
       right: 0;
       top: -10px;
-      transform: scale(.7);
+      transform: scale(.8);
       z-index: 1;
 
       ${scrollIn()}
@@ -32,6 +32,13 @@ export const List = styled.div`
 
 export const Item = styled.li`
   padding-bottom: 0;
+  ${props => props.fixed && css`
+    { transition: transform 0.1s ease;
+      &:hover{
+        transform: scale(1.1);
+      }
+    }
+  `}
 `;
 
 export const Button = styled.button`
@@ -64,4 +71,16 @@ export const Button = styled.button`
     color: ${grisClaro};
     opacity: 0.8;
   }
+
+  ${props => props.fixed && css`
+    {
+      height: 87.17px;
+    }
+    &.izquierdo{
+    border-radius: 0 0 0 16px;
+    }
+    &.derecho{
+      border-radius: 0 0 16px 0;
+    }
+  `}
 `;

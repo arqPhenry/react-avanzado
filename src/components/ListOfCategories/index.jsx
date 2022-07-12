@@ -40,8 +40,8 @@ const ListOfCategories = () => {
 
   const renderCategories = () => (
     categories.map(category =>
-      <Item key={category.id}>
-        <Category {...category} />
+      <Item key={category.id} fixed={fixed}>
+        <Category {...category} fixed={fixed} />
       </Item>)
   );
   const renderList = () => (
@@ -55,11 +55,11 @@ const ListOfCategories = () => {
   );
   const renderListFixed = () => (
     <List fixed={fixed}>
-      <Button type='button' className='izquierdo' onClick={scrollLeftFixed}><MdArrowBackIos /></Button>
+      <Button type='button' className='izquierdo' onClick={scrollLeftFixed} fixed={fixed}><MdArrowBackIos /></Button>
       <ul className='carrouselFixed'>
         {renderCategories()}
       </ul>
-      <Button type='button' className='derecho' onClick={scrollRightFixed}><MdArrowForwardIos /></Button>
+      <Button type='button' className='derecho' onClick={scrollRightFixed} fixed={fixed}><MdArrowForwardIos /></Button>
     </List>
   );
   const scrollRight = () => {
