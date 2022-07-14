@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+// import { loadingBackground } from '../styles/animations';
 
 export const Article = styled.article`
     background-color: #ffffff;
@@ -6,7 +7,7 @@ export const Article = styled.article`
     border-radius: 16px;
     max-width: 400px;
     overflow: hidden;
-    min-height: 300px;
+    min-height: 350px;
 
     box-shadow: 0px 10px 25px -12px #8b98a5;
 `;
@@ -16,6 +17,10 @@ export const Figure = styled.figure`
     overflow: hidden;
     padding: 75% 0 0 0;
     position: relative;
+    width: 100%;
+    min-height: 300px;
+    background: linear-gradient(148deg, #ffffff 0%, #C7C7C7 100%);
+    background-size: 400% 400%;
 `;
 
 export const Image = styled.img`
@@ -24,6 +29,14 @@ export const Image = styled.img`
     object-fit: cover;
     position: absolute;
     top: 0;
+    opacity: 0;
+    transition: 1.5s all;
+
+    ${props => !props.loadImage && css`
+    { 
+      opacity: 1;
+    }
+    `}
 `;
 
 export const ButtonList = styled.div`

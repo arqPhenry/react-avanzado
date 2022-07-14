@@ -31,6 +31,6 @@ export const GlobalStyle = createGlobalStyle`
 
     display: grid;
     justify-content: space-around;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: auto auto 1fr;
   }
 `;

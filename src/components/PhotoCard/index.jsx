@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Figure, Image, Button, Article, ButtonList } from './styles.js';
 import { MdFavoriteBorder, MdOutlineCategory, MdFavorite } from 'react-icons/md';
 import { useLocalStorage } from '../../hooks/useLocalStorage.js';
@@ -10,6 +10,7 @@ const PhotoCard = ({ id, likes, src }) => {
   const key = `like-${id}`;
   const [liked, setLiked] = useLocalStorage(key, false);
   const [showCard, element] = useNearScreen();
+  const [loadImage, setLoadImage] = useState(true);
 
   const Icon = liked ? MdFavorite : MdFavoriteBorder;
 
@@ -19,8 +20,8 @@ const PhotoCard = ({ id, likes, src }) => {
         <>
           <a href={`/detail/${id}`}>
             <Figure>
-              <div>
-                <Image src={src} alt={`image-${id}`} />
+              <div className='imageContainer'>
+                <Image src={src} alt={`image-${id}`} onLoad={() => setLoadImage(false)} loadImage={loadImage} />
               </div>
             </Figure>
           </a>
