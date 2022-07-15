@@ -12,3 +12,16 @@ query getPhotos($categoryId: ID) {
   }
 }
 `;
+
+export const getPhotoById = gql`
+  query getSinglePhoto($id: ID!) {
+    photo(id: $id) {
+      id
+      categoryId
+      src
+      likes
+      liked
+      userId
+    }
+  }
+`;

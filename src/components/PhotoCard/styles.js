@@ -55,8 +55,9 @@ export const Button = styled.button`
   border: 1px solid #536471;
   color: #536471;
   border-radius: 14px;
+  transition: 0.1s ease all;
+  cursor: pointer;
   &:hover{
-        cursor: pointer;
         border: 1px solid #f7f9f9;
         background-color: #536471;
         color: #f7f9f9;
@@ -64,4 +65,17 @@ export const Button = styled.button`
   & svg {
     margin-right: 6px;
   }
+  ${props => props.liked && css`
+    { 
+        border: 1px solid #f7f9f9;
+        background-color: #c51d34;
+        color: #f7f9f9;
+
+      &:hover{
+        color: #c51d34;
+        border: 1px solid #c51d34;
+        background-color: #f7f9f9;
+    }
+    }
+  `}
 `;
