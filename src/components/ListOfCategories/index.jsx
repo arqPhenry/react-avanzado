@@ -41,7 +41,7 @@ const ListOfCategories = () => {
   const renderCategories = () => (
     categories.map(category =>
       <Item key={category.id} fixed={fixed}>
-        <Category {...category} fixed={fixed} />
+        <Category {...category} fixed={fixed} path={`/pet/${category.id}`} />
       </Item>)
   );
   const renderList = () => (

@@ -1,9 +1,8 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Home } from './pages/Home.jsx';
 import { GlobalStyle } from './components/styles/GlobalStyles.js';
-import { ListOfCategories } from '@components/ListOfCategories/index.jsx';
-import { ListOfPhotoCardsContainer } from './containers/ListOfPhotoCardsContainer.jsx';
 import { PhotoCardWithQuery } from './containers/PhotoCardWithQuery.jsx';
-import { Logo } from '@components/Logo/index.jsx';
 
 const App = () => {
   const urlParams = new window.URLSearchParams(window.location.search);
@@ -11,13 +10,14 @@ const App = () => {
   return (
     <>
       <GlobalStyle />
-      <Logo />
       {detailId
         ? <PhotoCardWithQuery id={detailId} />
-        : <>
-          <ListOfCategories />
-          <ListOfPhotoCardsContainer categoryId={1} />
-        </>}
+        : <BrowserRouter>
+          <Routes>
+            <Route exact path='/' element={<Home />} />
+            <Route exact path='/pet/:categoryId' element={<Home />} />
+          </Routes>
+        </BrowserRouter>}
     </>
   );
 };

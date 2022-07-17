@@ -1,7 +1,8 @@
 import styled, { css } from 'styled-components';
+import { Link as LinkRouter } from 'react-router-dom';
 import { grisOscuro, grisClaro, vsm, pesoMedio, pesoMedioFuerte } from '../styles/vars';
 
-const Anchor = styled.a`
+const Link = styled(LinkRouter)`
     display: grid;
     grid-template-rows: auto auto;
     text-decoration: none;
@@ -89,4 +90,4 @@ const Par = styled.p`
   margin-bottom: 6.5px;
 `;
 
-export { Anchor, Image, Div, Span, Par };
+export { Link, Image, Div, Span, Par };
