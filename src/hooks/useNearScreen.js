@@ -17,6 +17,10 @@ function useNearScreen () {
       }
     });
     observer.observe(element.current);
+
+    return () => {
+      observer.disconnect();
+    };
   }, [element]);
 
   return [showCard, element];

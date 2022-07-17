@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Figure, Image, Button, Article, ButtonList } from './styles.js';
 import { MdFavoriteBorder, MdOutlineCategory, MdFavorite } from 'react-icons/md';
 import { useLocalStorage } from '../../hooks/useLocalStorage.js';
@@ -16,13 +17,13 @@ const PhotoCard = ({ id, likes, src }) => {
     <Article ref={element}>
       {showCard &&
         <>
-          <a href={`/?detail=${id}`}>
+          <Link to={`/detail/${id}`}>
             <Figure>
               <div className='imageContainer'>
                 <Image src={src} alt={`image-${id}`} onLoad={() => setLoadImage(false)} loadImage={loadImage} />
               </div>
             </Figure>
-          </a>
+          </Link>
           <ButtonList>
             <Button type='button' onClick={() => setLiked(!liked)} liked={liked}>
               <Icon size='16px' />{liked ? likes + 1 : likes}

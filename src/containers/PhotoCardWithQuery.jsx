@@ -1,11 +1,10 @@
 import React from 'react';
-import { PhotoCard } from '../components/PhotoCard';
+import { PhotoCardDetail } from '../components/PhotoCardDetail';
 import { getPhotoById } from '../hooks/useGetPhotos.js';
 import { useQuery } from '@apollo/client';
 import { LoadingPhotoCard } from '../components/LoadingPhotoCards/LoPhotoCard.jsx';
 
 export const PhotoCardWithQuery = ({ id }) => {
-  console.log(id);
   const { loading, error, data } = useQuery(getPhotoById, {
     variables: {
       id
@@ -19,6 +18,6 @@ export const PhotoCardWithQuery = ({ id }) => {
   }
 
   return (
-    <PhotoCard {...data.photo} />
+    <PhotoCardDetail {...data.photo} />
   );
 };

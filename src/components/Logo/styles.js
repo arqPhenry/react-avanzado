@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const Figure = styled.figure`
-    max-width: 400px;
-    padding-right: 220px;
+    max-width: 100vh;
+    padding-right: 55%;
     margin: 0px;
 `;
 
