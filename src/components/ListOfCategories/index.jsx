@@ -21,10 +21,8 @@ const ListOfCategories = () => {
       const observer = new window.IntersectionObserver(function (entries) {
         const { isIntersecting } = entries[0];
         if (isIntersecting) {
-          // console.log('Intersecta lista');
           setFixed(false);
         } else {
-          // console.log('No intersecta lista');
           setFixed(true);
         }
       });

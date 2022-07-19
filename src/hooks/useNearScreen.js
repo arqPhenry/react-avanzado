@@ -8,11 +8,9 @@ function useNearScreen () {
     const observer = new window.IntersectionObserver(function (entries) {
       const { isIntersecting } = entries[0];
       if (isIntersecting) {
-        console.log('Intersecta');
         setShowCard(true);
         observer.disconnect();
       } else {
-        console.log('No intersecta');
         setShowCard(false);
       }
     });
