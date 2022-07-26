@@ -1,7 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router';
 import { PhotoCardWithQuery } from '../containers/PhotoCardWithQuery.jsx';
-import { NavBar } from '../components/NavBar/index.jsx';
 
 export const Detail = () => {
   const params = useParams();
@@ -9,7 +8,6 @@ export const Detail = () => {
   return (
     <>
       <PhotoCardWithQuery id={params.detailId} />
-      <NavBar />
     </>
 
   );

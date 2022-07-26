@@ -1,7 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router';
 import { ListOfPhotoCardsContainer } from '../containers/ListOfPhotoCardsContainer.jsx';
-import { NavBar } from '../components/NavBar/index.jsx';
 
 export const Home = () => {
   const params = useParams();
@@ -9,7 +8,6 @@ export const Home = () => {
   return (
     <>
       <ListOfPhotoCardsContainer categoryId={params.categoryId} />
-      <NavBar />
     </>
   );
 };
