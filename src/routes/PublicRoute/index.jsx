@@ -1,12 +1,14 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import { NavBar } from '../../components/NavBar/index';
+import { Logo } from '@components/Logo/index.jsx';
+import { ListOfCategories } from '@components/ListOfCategories/index.jsx';
 
 export const PublicRoute = () => {
   return (
     <>
+      <Logo />
+      <ListOfCategories />
       <Outlet />
-      <NavBar />
     </>
   );
 };

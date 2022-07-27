@@ -1,6 +1,7 @@
 import React from 'react';
 import { useInputValue } from '../../hooks/useInputValue.js';
-import { Form, Input, Button, Label, Div } from '../UserForm/styles';
+import perrito from '../../assets/dog.png';
+import { Form, Input, Button, Label, Div, Img, Figure } from '../UserForm/styles';
 
 export const UserFormRegister = ({ onSubmit }) => {
   const email = useInputValue('');
@@ -9,6 +10,9 @@ export const UserFormRegister = ({ onSubmit }) => {
 
   return (
     <Form onSubmit={onSubmit}>
+      <Figure>
+        <Img src={perrito} />
+      </Figure>
       <Label htmlFor='email'>Email address</Label>
       <Input type='email' placeholder='johndoe@example.com' id='email' {...email} />
 

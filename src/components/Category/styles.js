@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { Link as LinkRouter } from 'react-router-dom';
-import { grisOscuro, grisClaro, vsm, pesoMedio, pesoMedioFuerte } from '../styles/vars';
+import { negroAlterno, grisClaro, vsm, pesoMedio, pesoMedioFuerte } from '../styles/vars';
 
 const Link = styled(LinkRouter)`
     display: grid;
@@ -21,10 +21,10 @@ const Link = styled(LinkRouter)`
 
     &:hover{
       & div{
-        background-color: ${grisOscuro};
+        background-color: ${negroAlterno};
 
         &::before{
-          background-color: ${grisOscuro};
+          background-color: ${negroAlterno};
         }
         & p{
           color: ${grisClaro};
@@ -85,7 +85,7 @@ const Par = styled.p`
   text-align: center;
   font-size: ${vsm};
   font-weight: ${pesoMedio};
-  color: ${grisOscuro};
+  color: ${negroAlterno};
   transition: all 0.25s ease;
   margin-bottom: 6.5px;
 `;

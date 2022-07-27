@@ -1,22 +1,49 @@
 import styled from 'styled-components';
-import { azulPrincipal, azulFondoOscuro, blanco, md, grisClaro, sm, negroAlterno } from '../styles/vars';
+import { azulPrincipal, blanco, md, grisClaro, sm, negroAlterno } from '../styles/vars';
 import { Link as LinkRouter } from 'react-router-dom';
 
+export const Container = styled.div`
+    position: absolute;
+    display: grid;
+    grid-template-rows: repeat(2, auto) 1fr;
+    gap: 36px;
+    max-width: 400px;
+    width: 100%;
+    padding-top: 16px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+
+    &:nth-child(1){
+        align-items: center;
+    }
+`;
+export const Container2 = styled.div`
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+    gap: 16px;
+    max-width: 400px;
+    width: 100%;
+
+    &:nth-child(1){
+        align-items: center;
+    }
+`;
 export const Form = styled.form`
     display: flex;
     flex-direction: column;
     padding: 24px;
     background-color: ${blanco};
-    width: 100%;
     max-width: 400px;
+    width: 100%;
     border-radius: 16px;
-
     box-shadow: 0px 10px 25px -12px #8b98a5;
 `;
 
 export const Input = styled.input`
     background-color: ${grisClaro};
     border: none;
+    width: 1005;
     border-radius: 8px;
     height: 36px;
     font-size: ${md};
@@ -28,27 +55,18 @@ export const Div = styled.div`
     margin-top: 16px;
     margin-bottom: 8px;
 `;
-export const Container = styled.div`
-    display: grid;
-    grid-template-rows: repeat(2, auto) 1fr;
-    gap: 36px;
+export const Figure = styled.figure`
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
 
-    &:nth-child(1){
-        align-items: center;
-    }
 `;
-export const Container2 = styled.div`
-    display: grid;
-    grid-template-rows: repeat(2, auto);
-    gap: 16px;
-
-    &:nth-child(1){
-        align-items: center;
-    }
+export const Img = styled.img`
+    max-width: 200px;
 `;
 
 export const Button = styled.button`
-    background: linear-gradient(148deg, ${azulPrincipal} 0%, ${azulFondoOscuro} 100%); 
+    background: linear-gradient(220.55deg, #3793FF 0%, #0017E4 100%);
     border-radius: 8px;
     border: none;
     color: ${blanco};

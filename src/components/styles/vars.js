@@ -7,6 +7,7 @@ export const grisOscuro = '#536471';
 export const grisDelimitador = '#C7C7C7';
 
 export const azulPrincipal = '#2d68f5';
+export const rojoAmor = '#c51d34';
 
 export const fuente = '"Inter", sans-serif';
 export const pesoLigero = 300;

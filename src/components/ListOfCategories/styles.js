@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { scrollIn } from '../styles/animations.js';
-import { grisClaro, grisOscuro } from '../styles/vars.js';
+import { grisClaro, negroAlterno } from '../styles/vars.js';
 
 export const List = styled.div`
   display: grid;
@@ -67,7 +67,7 @@ export const Button = styled.button`
   }
 
   &:hover{
-    background-color: ${grisOscuro};
+    background-color: ${negroAlterno};
     color: ${grisClaro};
     opacity: 0.8;
   }

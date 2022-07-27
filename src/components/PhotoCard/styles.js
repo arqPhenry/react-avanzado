@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
-// import { loadingBackground } from '../styles/animations';
+import { blanco, grisDelimitador, negroAlterno, grisClaro, rojoAmor } from '../styles/vars';
 
 export const Article = styled.article`
-    background-color: #ffffff;
+    background-color: ${blanco};
     margin-bottom: 12px;
     border-radius: 16px;
     max-width: 400px;
@@ -19,7 +19,7 @@ export const Figure = styled.figure`
     position: relative;
     width: 100%;
     min-height: 300px;
-    background: linear-gradient(148deg, #ffffff 0%, #C7C7C7 100%);
+    background: linear-gradient(148deg, ${blanco} 0%, ${grisDelimitador} 100%);
     background-size: 400% 400%;
 `;
 
@@ -52,29 +52,29 @@ export const Button = styled.button`
   align-items: center;
   justify-content: center;
   padding: 4px 8px;
-  border: 1px solid #536471;
-  color: #536471;
+  border: 1px solid ${negroAlterno};
+  color: ${negroAlterno};
   border-radius: 14px;
   transition: 0.1s ease all;
   cursor: pointer;
   &:hover{
-        border: 1px solid #f7f9f9;
-        background-color: #536471;
-        color: #f7f9f9;
+        border: 1px solid ${grisClaro};
+        background-color: ${negroAlterno};
+        color: ${grisClaro};
     }
   & svg {
     margin-right: 6px;
   }
   ${props => props.liked && css`
     { 
-        border: 1px solid #f7f9f9;
-        background-color: #c51d34;
-        color: #f7f9f9;
+        border: 1px solid ${grisClaro};
+        background-color: ${rojoAmor};
+        color: ${grisClaro};
 
       &:hover{
-        color: #c51d34;
-        border: 1px solid #c51d34;
-        background-color: #f7f9f9;
+        color: ${rojoAmor};
+        border: 1px solid ${rojoAmor};
+        background-color: ${grisClaro};
     }
     }
   `}

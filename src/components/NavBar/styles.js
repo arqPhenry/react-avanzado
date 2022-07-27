@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { NavLink as LinkRouter } from 'react-router-dom';
-import { grisDelimitador, grisClaro, negroAlterno } from '../styles/vars';
+import { grisDelimitador, grisClaro, negroAlterno, negro } from '../styles/vars';
 
 export const Nav = styled.nav`
   align-items: center;
@@ -29,4 +29,19 @@ export const Link = styled(LinkRouter)`
   justify-content: center;
   text-decoration: none;
   width: 100%;
+  position: relative;
+
+  &[aria-current] {
+    color: ${negro};
+
+    &:after {
+      content: '';
+      background-color: ${negro};
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      position: absolute;
+      bottom: 5px;
+    }
+  }
 `;

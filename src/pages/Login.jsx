@@ -14,9 +14,7 @@ const Login = () => {
 
   return (
     <Container>
-      <div>
-        <UserForm onSubmit={handleSubmit} />
-      </div>
+      <UserForm onSubmit={handleSubmit} />
       <Container2>
         <Span>Forgot my password</Span>
         <Link to='/register'><SecundaryButton>Sign up</SecundaryButton></Link>
