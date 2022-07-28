@@ -1,28 +1,32 @@
 import React from 'react';
 import { useInputValue } from '../../hooks/useInputValue.js';
 import perrito from '../../assets/dog.png';
-import { Form, Input, Button, Label, Div, Img, Figure } from '../UserForm/styles';
+import { Form, Input, Button, Label, Div, Img, Figure, SpanError } from '../UserForm/styles';
 
-export const UserFormRegister = ({ onSubmit }) => {
+export const UserFormRegister = ({ onSubmit, error, disabled }) => {
   const email = useInputValue('');
   const password = useInputValue('');
-  const username = useInputValue('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSubmit({ email: email.value, password: password.value });
+  };
 
   return (
-    <Form onSubmit={onSubmit}>
+    <Form onSubmit={handleSubmit} disabled={disabled}>
       <Figure>
         <Img src={perrito} />
       </Figure>
       <Label htmlFor='email'>Email address</Label>
-      <Input type='email' placeholder='johndoe@example.com' id='email' {...email} />
-
-      <Label htmlFor='email'>Username</Label>
-      <Input type='text' placeholder='johnpetlover' id='username' {...username} />
+      <Input type='email' placeholder='johndoe@example.com' id='email' disabled={disabled} {...email} />
 
       <Label htmlFor='password'>Password</Label>
-      <Input type='password' placeholder='********' id='password' {...password} />
+      <Input type='password' placeholder='********' id='password' disabled={disabled} {...password} />
+
+      {error && <SpanError>{error}</SpanError>}
+
       <Div>
-        <Button>Register</Button>
+        <Button disabled={disabled}>Register</Button>
       </Div>
     </Form>
   );

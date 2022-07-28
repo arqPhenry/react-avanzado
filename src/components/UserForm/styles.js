@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { azulPrincipal, blanco, md, grisClaro, sm, negroAlterno } from '../styles/vars';
+import { azulPrincipal, blanco, md, grisClaro, sm, negroAlterno, rojoAmor } from '../styles/vars';
 import { Link as LinkRouter } from 'react-router-dom';
 
 export const Container = styled.div`
@@ -49,6 +49,10 @@ export const Input = styled.input`
     font-size: ${md};
     padding: 6px;
     margin-bottom: 16px;
+
+    &[disabled] {
+        opacity: 0.3;
+    }
 `;
 
 export const Div = styled.div`
@@ -85,6 +89,10 @@ export const Button = styled.button`
         box-shadow: none;
         background: ${azulPrincipal};
     }
+
+    &[disabled] {
+        opacity: 0.3;
+    }
 `;
 
 export const SecundaryButton = styled.button`
@@ -103,6 +111,11 @@ export const Span = styled.span`
     font-size: ${sm};
     text-align: center;
     color: ${negroAlterno};
+`;
+export const SpanError = styled.span`
+    font-size: ${sm};
+    text-align: center;
+    color: ${rojoAmor};
 `;
 export const Link = styled(LinkRouter)`
     text-align: center;
