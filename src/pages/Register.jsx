@@ -7,7 +7,6 @@ import { useRegisterMutation } from '../containers/RegisterMutation';
 
 const Register = () => {
   const { registerUser } = useContext(AppContext);
-  const { loginUser } = useContext(AppContext);
   const { registerMutation, loading, error } = useRegisterMutation();
   const navigate = useNavigate();
 
@@ -15,9 +14,11 @@ const Register = () => {
     const input = { email, password };
     const variables = { input };
     registerMutation({ variables })
-      .then(registerUser(true))
-      .then(loginUser(true))
-      .then(navigate('/'));
+      .then(({ data }) => {
+        const { signup } = data;
+        registerUser(signup);
+      })
+      .then(navigate('/login'));
   };
 
   const errorMsg = error && 'User already exist';

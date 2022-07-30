@@ -14,7 +14,10 @@ const Login = () => {
     const input = { email, password };
     const variables = { input };
     loginMutation({ variables })
-      .then(loginUser(true))
+      .then(({ data }) => {
+        const { login } = data;
+        loginUser(login);
+      })
       .then(navigate('/'));
   };
 

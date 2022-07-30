@@ -1,24 +1,24 @@
 import { useState } from 'react';
 
 const initialState = {
-  isLoged: false,
-  isRegistered: false
+  isLoged: window.sessionStorage.getItem('tokenlogin') ? window.sessionStorage.getItem('tokenlogin') : false,
+  isRegistered: window.sessionStorage.getItem('tokenregister') ? window.sessionStorage.getItem('tokenregister') : false
 };
 
 const useInitialState = () => {
   const [state, setState] = useState(initialState);
 
-  const loginUser = (estado) => {
+  const loginUser = (token) => {
     setState({
       ...state,
-      isLoged: estado
+      isLoged: window.sessionStorage.setItem('tokenlogin', token)
     });
   };
 
-  const registerUser = (estado) => {
+  const registerUser = (token) => {
     setState({
       ...state,
-      isRegistered: estado
+      isRegistered: window.sessionStorage.setItem('tokenregister', token)
     });
   };
 
