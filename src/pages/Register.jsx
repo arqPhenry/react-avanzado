@@ -1,24 +1,30 @@
 import React, { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import { AppContext } from '@context/AppContext';
 import { UserFormRegister } from '../components/UserFormRegister/index';
 import { Container, Span, Container2, Link } from '../components/UserForm/styles';
 import { useRegisterMutation } from '../containers/RegisterMutation';
 
 const Register = () => {
-  const { registerUser } = useContext(AppContext);
+  const { registerUser, state } = useContext(AppContext);
   const { registerMutation, loading, error } = useRegisterMutation();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const onSubmit = ({ email, password }) => {
     const input = { email, password };
     const variables = { input };
     registerMutation({ variables })
-      .then(({ data }) => {
+      .then(async ({ data }) => {
         const { signup } = data;
-        registerUser(signup);
+        await registerUser(signup);
       })
-      .then(navigate('/login'));
+      .then(() => {
+        if (state.isRegistered) {
+          window.location.assign('/login');
+        } else {
+          console.log(error);
+        }
+      });
   };
 
   const errorMsg = error && 'User already exist';

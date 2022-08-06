@@ -26,8 +26,8 @@ const Router = () => {
         <Route exact path='/register' element={<Register />} />
         {state.isLoged
           ? <>
-            <Route exact path='/favs' element={<Favs />} />
-            <Route exact path='/user' element={<User />} />
+            <Route exact path='/favs' noThrow element={<Favs />} />
+            <Route exact path='/user' noThrow element={<User />} />
             </>
           : <>
             <Route exact path='/favs' element={<Navigate noThrow to='/login' />} />

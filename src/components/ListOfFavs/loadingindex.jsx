@@ -12,7 +12,6 @@ const LoadingListOfFavs = () => {
       <Div />
       <Div />
       <Div />
-      <Div />
     </Grid>
   );
 };

@@ -1,24 +1,30 @@
 import React, { useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { AppContext } from '@context/AppContext';
 import { UserForm } from '../components/UserForm';
 import { Container, SecundaryButton, Span, Container2 } from '../components/UserForm/styles';
 import { useLoginMutation } from '../containers/LoginMutation';
 
 const Login = () => {
-  const { loginUser } = useContext(AppContext);
+  const { loginUser, state } = useContext(AppContext);
   const { loginMutation, loading, error } = useLoginMutation();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const onSubmit = ({ email, password }) => {
     const input = { email, password };
     const variables = { input };
     loginMutation({ variables })
-      .then(({ data }) => {
+      .then(async ({ data }) => {
         const { login } = data;
-        loginUser(login);
+        await loginUser(login);
       })
-      .then(navigate('/'));
+      .then(() => {
+        if (state.isLoged) {
+          window.location.assign('/');
+        } else {
+          console.log(error);
+        }
+      });
   };
 
   const errorMsg = error && 'Email or password is invalid';
