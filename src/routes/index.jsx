@@ -30,8 +30,8 @@ const Router = () => {
             <Route exact path='/user' element={<User />} />
             </>
           : <>
-            <Route exact path='/favs' element={<Navigate to='/login' />} />
-            <Route exact path='/user' element={<Navigate to='/login' />} />
+            <Route exact path='/favs' element={<Navigate noThrow to='/login' />} />
+            <Route exact path='/user' element={<Navigate noThrow to='/login' />} />
             </>}
       </Routes>
       <NavBar />
