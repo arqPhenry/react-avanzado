@@ -4,6 +4,7 @@ import { AppContext } from '@context/AppContext';
 import { UserForm } from '../components/UserForm';
 import { Container, SecundaryButton, Span, Container2 } from '../components/UserForm/styles';
 import { useLoginMutation } from '../containers/LoginMutation';
+import { Helmet } from 'react-helmet';
 
 const Login = () => {
   const { loginUser, state } = useContext(AppContext);
@@ -31,6 +32,10 @@ const Login = () => {
 
   return (
     <Container>
+      <Helmet>
+        <title>PetGram | 🤳 Login</title>
+        <meta name='description' content='Petgram login, come here and enter' />
+      </Helmet>
       <UserForm onSubmit={onSubmit} error={errorMsg} disabled={loading} />
       <Container2>
         <Span>Forgot my password</Span>

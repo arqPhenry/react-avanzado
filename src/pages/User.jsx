@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { AppContext } from '@context/AppContext';
 import { FavsWithQuery } from '../containers/FavsWithQuery';
 import { Span } from '../components/styles/userPageStyles';
+import { Helmet } from 'react-helmet';
 import userkitty from '../assets/user.png';
 import '../components/styles/userPageStyles.scss';
 
@@ -9,6 +10,10 @@ const User = ({ favs = [] }) => {
   const { state, logOut } = useContext(AppContext);
   return (
     <div className='user-container'>
+      <Helmet>
+        <title>PetGram | 😺 My account</title>
+        <meta name='description' content='My account on Petgram' />
+      </Helmet>
       <h1>User dashboard</h1>
       <div className='presentacion'>
         <figure><img src={userkitty} /></figure>

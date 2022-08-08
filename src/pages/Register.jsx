@@ -4,6 +4,7 @@ import { AppContext } from '@context/AppContext';
 import { UserFormRegister } from '../components/UserFormRegister/index';
 import { Container, Span, Container2, Link } from '../components/UserForm/styles';
 import { useRegisterMutation } from '../containers/RegisterMutation';
+import { Helmet } from 'react-helmet';
 
 const Register = () => {
   const { registerUser, state } = useContext(AppContext);
@@ -31,6 +32,10 @@ const Register = () => {
 
   return (
     <Container>
+      <Helmet>
+        <title>PetGram | 🐱‍🏍 Register</title>
+        <meta name='description' content='Register on Petgram, and start your adventure in the world of the cutest pets.' />
+      </Helmet>
       <div>
         <UserFormRegister onSubmit={onSubmit} error={errorMsg} disabled={loading} />
       </div>
