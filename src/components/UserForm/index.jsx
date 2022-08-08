@@ -1,6 +1,6 @@
 import React from 'react';
 import { useInputValue } from '../../hooks/useInputValue.js';
-import perrito from '../../assets/dog (3).png';
+import loginkitty from '../../assets/login.png';
 import { Form, Input, Button, Label, Div, Img, Figure, SpanError } from './styles.js';
 
 export const UserForm = ({ onSubmit, disabled, error }) => {
@@ -15,7 +15,7 @@ export const UserForm = ({ onSubmit, disabled, error }) => {
   return (
     <Form onSubmit={handleSubmit} disabled={disabled}>
       <Figure>
-        <Img src={perrito} />
+        <Img src={loginkitty} />
       </Figure>
 
       <Label htmlFor='email'>Email address</Label>

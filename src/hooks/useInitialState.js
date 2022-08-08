@@ -22,10 +22,18 @@ const useInitialState = () => {
     });
   };
 
+  const logOut = () => {
+    setState({
+      ...state,
+      isLoged: window.sessionStorage.removeItem('tokenlogin')
+    });
+  };
+
   return {
     state,
     loginUser,
-    registerUser
+    registerUser,
+    logOut
   };
 };
 

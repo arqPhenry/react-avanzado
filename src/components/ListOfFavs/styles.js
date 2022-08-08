@@ -18,7 +18,6 @@ export const Link = styled(LinkRouter)`
 `;
 
 export const Grid = styled.div`
-    padding-top: 32px;
     max-width: 400px;
     width: 400px;
 `;
