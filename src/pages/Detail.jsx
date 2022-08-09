@@ -3,7 +3,7 @@ import { useParams } from 'react-router';
 import { PhotoCardWithQuery } from '../containers/PhotoCardWithQuery.jsx';
 import { Helmet } from 'react-helmet';
 
-export const Detail = () => {
+const Detail = () => {
   const params = useParams();
 
   return (
@@ -17,3 +17,5 @@ export const Detail = () => {
 
   );
 };
+
+export default Detail;

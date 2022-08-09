@@ -36,4 +36,4 @@ const User = ({ favs = [] }) => {
   );
 };
 
-export { User };
+export default User;

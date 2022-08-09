@@ -3,7 +3,7 @@ import { useParams } from 'react-router';
 import { ListOfPhotoCardsContainer } from '../containers/ListOfPhotoCardsContainer.jsx';
 import { Helmet } from 'react-helmet';
 
-export const Home = () => {
+const Home = () => {
   const params = useParams();
 
   return (
@@ -16,3 +16,5 @@ export const Home = () => {
     </>
   );
 };
+
+export default Home;

@@ -1,6 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const WebpackManifestPlugin = require('webpack-pwa-manifest');
+const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
   output: {
@@ -15,6 +17,40 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       filename: '[name].css'
+    }),
+    new WebpackManifestPlugin({
+      name: 'PetGram - The best pet photos on web',
+      short_name: 'PetGram 🐶',
+      description: 'With Petgram you cand find very nice pictures of pets and domestic animals.',
+      background_color: '#f7f9f9',
+      theme_color: '#f7f9f9',
+      icons: [
+        {
+          src: path.resolve('src/assets/favicon.png'),
+          sizes: [96, 128, 192, 256, 384, 512]
+        }
+      ],
+      start_url: '/',
+      scope: '/',
+      display: 'standalone'
+    }),
+    new WorkboxWebpackPlugin.GenerateSW({
+      runtimeCaching: [
+        {
+          urlPattern: /https:\/\/res.cloudinary.com|images.unplash.com/,
+          handler: 'CacheFirst',
+          options: {
+            cacheName: 'images'
+          }
+        },
+        {
+          urlPattern: /https:\/\/petgram-server-phenry.vercel.app/,
+          handler: 'NetworkFirst',
+          options: {
+            cacheName: 'api'
+          }
+        }
+      ]
     })
   ],
   resolve: {
