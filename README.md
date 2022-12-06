@@ -1,5 +1,15 @@
 # PWA, Social NetWork for Pets. "PetGram"
-Open it: https://petgram-phenry-arqphenry.vercel.app/
+### Open it: https://petgram-phenry-arqphenry.vercel.app/
+### Description:
+Social network for pets PWA where users can: 
+- View photos of the cutest pets in the world. 
+- Register, and log in to the web as it has a server at Vercel. 
+- Filter the photos by categories. 
+- Like the photos with their own users. 
+- See a summary of the photos that have been liked. 
+- View your personal profile information. 
+- View photo details.
+
 ![MP2-1](https://user-images.githubusercontent.com/81928818/205800361-f5343804-bc65-44c1-a8e2-809e8c1fa9cc.png)
 ![MP2-2](https://user-images.githubusercontent.com/81928818/205800377-24878b3e-1d19-42b1-9770-0eb817f7aa9b.png)
 ![MP2-3](https://user-images.githubusercontent.com/81928818/205800561-539cb8b3-c972-4c5f-bd65-0188f37619b2.png)
